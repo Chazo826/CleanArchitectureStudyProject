@@ -8,3 +8,5 @@
 5. convert CleanArchitecture
 
 + use Android Architecture Component, Dagger2, Rx, Jetpack
++ practice issue, pull request, Project management
++ improve wiki writing skill
