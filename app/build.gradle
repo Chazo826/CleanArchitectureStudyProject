@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
 }
 
 dependencies {
@@ -32,8 +36,9 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$versions.support"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
 
-    implementation "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
-    implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
     implementation "com.google.android.gms:play-services-auth:$versions.playServicesAuth"
     implementation("com.google.api-client:google-api-client-android:$versions.googleApiClientAndroid") {
@@ -57,4 +62,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+
+configurations.all {
+    // this is a workaround for the issue:
+    // https://stackoverflow.com/questions/52521302/how-to-solve-program-type-already-present-com-google-common-util-concurrent-lis
+    exclude group: 'com.google.guava', module: 'listenablefuture'
 }
