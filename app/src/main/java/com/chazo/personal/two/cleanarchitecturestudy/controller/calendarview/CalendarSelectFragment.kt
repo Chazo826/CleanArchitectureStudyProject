@@ -1,6 +1,5 @@
 package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
 
-
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import com.chazo.personal.two.cleanarchitecturestudy.DaggerFragment
+import com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx.DaggerFragment
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_AUTH_PERMISSION
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository

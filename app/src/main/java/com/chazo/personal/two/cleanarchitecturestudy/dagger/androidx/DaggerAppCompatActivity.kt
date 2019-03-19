@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy
+package com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

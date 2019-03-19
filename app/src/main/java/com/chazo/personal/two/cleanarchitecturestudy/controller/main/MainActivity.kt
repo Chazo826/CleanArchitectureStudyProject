@@ -8,7 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.chazo.personal.two.cleanarchitecturestudy.DaggerAppCompatActivity
+import com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx.DaggerAppCompatActivity
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import kotlinx.android.synthetic.main.activity_main.*
 
