@@ -17,12 +17,12 @@ import javax.inject.Singleton
         GoogleCalendarDataModule::class
     ]
 )
-interface AppComponent : AndroidInjector<GlobalApplication> {
+interface ApplicationComponent : AndroidInjector<GlobalApplication> {
 
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: Application): AppComponent.Builder
-        fun build(): AppComponent
+        fun application(application: Application): ApplicationComponent.Builder
+        fun build(): ApplicationComponent
     }
 }

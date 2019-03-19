@@ -11,14 +11,14 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainModule {
 
     @FragmentScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector
     abstract fun authFragment(): AuthFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector
     abstract fun calendarSelectFragment(): CalendarSelectFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector
     abstract fun calendarFragment(): CalendarFragment
 }

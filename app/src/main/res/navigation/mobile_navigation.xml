@@ -30,9 +30,7 @@
 		tools:layout="@layout/fragment_calendar">
 		<argument
 			android:name="calendarId"
-			app:argType="string"
-			android:defaultValue="@string/calendarId_default"/>
-
+			app:argType="string"/>
 	</fragment>
 
 </navigation>
