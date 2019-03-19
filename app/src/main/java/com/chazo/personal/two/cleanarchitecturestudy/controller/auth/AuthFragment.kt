@@ -10,8 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.dagger.ktx.DaggerFragment
 import androidx.navigation.fragment.findNavController
-import com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx.DaggerFragment
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_ACCOUNT_PICKER
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RP_GET_ACCOUNTS

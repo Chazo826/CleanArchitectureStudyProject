@@ -1,8 +1,8 @@
 package com.chazo.personal.two.cleanarchitecturestudy.application
 
+import androidx.dagger.ktx.DaggerApplication
 import com.chazo.personal.two.cleanarchitecturestudy.application.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
 
 class GlobalApplication: DaggerApplication() {
 

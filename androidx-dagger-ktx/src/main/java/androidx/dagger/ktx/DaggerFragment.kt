@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx
+package androidx.dagger.ktx
 
 import android.content.Context
 import androidx.fragment.app.Fragment

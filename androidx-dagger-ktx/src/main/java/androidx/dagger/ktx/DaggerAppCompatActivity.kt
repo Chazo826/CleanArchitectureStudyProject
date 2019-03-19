@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.dagger.androidx
+package androidx.dagger.ktx
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +10,13 @@ import dagger.android.HasFragmentInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
+
 abstract class DaggerAppCompatActivity: AppCompatActivity(), HasFragmentInjector, HasSupportFragmentInjector {
 
     @Inject
     lateinit var supportFragmentInjector: DispatchingAndroidInjector<Fragment>
+
+    @Suppress("DEPRECATION")
     @Inject
     lateinit var frameworkFragmentInjector: DispatchingAndroidInjector<android.app.Fragment>
 
@@ -24,5 +27,6 @@ abstract class DaggerAppCompatActivity: AppCompatActivity(), HasFragmentInjector
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
 
+    @Suppress("DEPRECATION")
     override fun fragmentInjector(): AndroidInjector<android.app.Fragment> = frameworkFragmentInjector
 }
