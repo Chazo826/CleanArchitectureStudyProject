@@ -21,7 +21,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
 import javax.inject.Inject
 
-class AuthFragment : DaggerFragment() {
+class AuthFragment() : DaggerFragment() {
 
     @Inject
     lateinit var googleAccountCredential: GoogleAccountCredential

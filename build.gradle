@@ -19,7 +19,7 @@ buildscript {
                 googleApiServiceCalendar: "v3-rev364-1.25.0",
 
                 //dagger
-                dagger                  : "2.19",
+                dagger                  : "2.21",
 
                 easyPermissions         : "2.0.0",
 

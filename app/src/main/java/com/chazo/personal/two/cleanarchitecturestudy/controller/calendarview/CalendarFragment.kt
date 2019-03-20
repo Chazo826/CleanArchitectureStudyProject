@@ -1,6 +1,5 @@
 package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -58,7 +57,7 @@ class CalendarFragment : DaggerFragment() {
     private fun getEvents(calendarId: String): Single<List<Event>> =
         googleCalendarRepository.getEvents(calendarId)
             .observeOn(AndroidSchedulers.mainThread())
-            .doFinally { progress_loading.visibility = View.GONE }
+            .doFinally { progress_loading?.visibility = View.GONE }
 
     private fun createEventsText(events: List<Event>): String {
         val size = events.size
@@ -70,6 +69,8 @@ class CalendarFragment : DaggerFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
+        if(!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
 }

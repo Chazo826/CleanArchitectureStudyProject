@@ -13,8 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity: DaggerAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

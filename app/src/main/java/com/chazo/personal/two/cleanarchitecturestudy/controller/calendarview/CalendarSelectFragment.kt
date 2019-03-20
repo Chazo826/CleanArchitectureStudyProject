@@ -63,7 +63,7 @@ class CalendarSelectFragment : DaggerFragment() {
         googleCalendarRepository.getCalendarList()
             .observeOn(AndroidSchedulers.mainThread())
             .map { it.items }
-            .doFinally { progress_loading.visibility = View.GONE }
+            .doFinally { progress_loading?.visibility = View.GONE }
 
     private fun addCalendarButtons(calendars: List<CalendarListEntry>) {
         calendars.forEach {
@@ -95,7 +95,8 @@ class CalendarSelectFragment : DaggerFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
+        if(!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
-
 }

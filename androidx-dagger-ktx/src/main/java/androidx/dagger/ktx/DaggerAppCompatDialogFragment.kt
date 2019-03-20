@@ -1,14 +1,18 @@
 package androidx.dagger.ktx
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.Fragment
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 
-abstract class DaggerFragment : Fragment(), HasSupportFragmentInjector {
+abstract class DaggerAppCompatDialogFragment : AppCompatDialogFragment(), HasSupportFragmentInjector {
+
+
+    @Suppress("MemberVisibilityCanBePrivate")
     @Inject
-    lateinit var childFragmentInjector: DispatchingAndroidInjector<Fragment>
+    protected lateinit var childFragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
