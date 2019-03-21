@@ -2,18 +2,18 @@ package com.chazo.personal.two.cleanarchitecturestudy.controller.main
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.dagger.ktx.DaggerAppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
+
 import com.chazo.personal.two.cleanarchitecturestudy.R
-import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity: DaggerAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

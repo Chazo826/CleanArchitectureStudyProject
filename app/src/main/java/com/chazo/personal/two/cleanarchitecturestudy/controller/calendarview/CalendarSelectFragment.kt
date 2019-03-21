@@ -1,6 +1,5 @@
 package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
 
-
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -8,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.dagger.ktx.DaggerFragment
 import androidx.navigation.fragment.findNavController
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_AUTH_PERMISSION
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException
 import com.google.api.services.calendar.model.CalendarListEntry
-import dagger.android.support.DaggerFragment
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -64,7 +63,7 @@ class CalendarSelectFragment : DaggerFragment() {
         googleCalendarRepository.getCalendarList()
             .observeOn(AndroidSchedulers.mainThread())
             .map { it.items }
-            .doFinally { progress_loading.visibility = View.GONE }
+            .doFinally { progress_loading?.visibility = View.GONE }
 
     private fun addCalendarButtons(calendars: List<CalendarListEntry>) {
         calendars.forEach {
@@ -82,10 +81,8 @@ class CalendarSelectFragment : DaggerFragment() {
     }
 
     private fun moveToCalendarFragment(calendarId: String) {
-        CalendarSelectFragmentDirections.actionDestCalendarSelectToDestCalendar().apply {
-            this.calendarId = calendarId
-            findNavController().navigate(this)
-        }
+        val action = CalendarSelectFragmentDirections.actionDestCalendarSelectToDestCalendar(calendarId)
+        findNavController().navigate(action)
     }
 
 
@@ -98,7 +95,8 @@ class CalendarSelectFragment : DaggerFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
+        if(!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
-
 }

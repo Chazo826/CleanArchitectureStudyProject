@@ -1,14 +1,13 @@
 package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.dagger.ktx.DaggerFragment
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.services.calendar.model.Event
-import dagger.android.support.DaggerFragment
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -58,7 +57,7 @@ class CalendarFragment : DaggerFragment() {
     private fun getEvents(calendarId: String): Single<List<Event>> =
         googleCalendarRepository.getEvents(calendarId)
             .observeOn(AndroidSchedulers.mainThread())
-            .doFinally { progress_loading.visibility = View.GONE }
+            .doFinally { progress_loading?.visibility = View.GONE }
 
     private fun createEventsText(events: List<Event>): String {
         val size = events.size
@@ -70,6 +69,8 @@ class CalendarFragment : DaggerFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
+        if(!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
 }
