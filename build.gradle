@@ -21,8 +21,6 @@ buildscript {
                 //dagger
                 dagger                  : "2.21",
 
-                easyPermissions         : "2.0.0",
-
                 //rxjava
                 rxandroid               : "2.1.0",
                 rxjava                  : "2.2.5",

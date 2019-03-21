@@ -49,8 +49,6 @@ dependencies {
         exclude group: 'org.apache.httpcomponents'
     }
 
-    implementation "pub.devrel:easypermissions:$versions.easyPermissions"
-
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
 
