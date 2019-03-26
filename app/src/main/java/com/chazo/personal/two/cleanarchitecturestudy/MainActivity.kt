@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.controller.main
+package com.chazo.personal.two.cleanarchitecturestudy
 
 import android.os.Bundle
 import android.view.MenuItem

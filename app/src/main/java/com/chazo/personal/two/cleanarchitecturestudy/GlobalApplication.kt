@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.application
+package com.chazo.personal.two.cleanarchitecturestudy
 
 import android.util.Log
 import com.chazo.personal.two.cleanarchitecturestudy.application.di.DaggerApplicationComponent

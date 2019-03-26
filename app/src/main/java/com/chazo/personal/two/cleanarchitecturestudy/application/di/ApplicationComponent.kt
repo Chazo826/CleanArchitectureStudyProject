@@ -1,7 +1,7 @@
 package com.chazo.personal.two.cleanarchitecturestudy.application.di
 
 import android.app.Application
-import com.chazo.personal.two.cleanarchitecturestudy.application.GlobalApplication
+import com.chazo.personal.two.cleanarchitecturestudy.GlobalApplication
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarDataModule
 import dagger.BindsInstance
 import dagger.Component
