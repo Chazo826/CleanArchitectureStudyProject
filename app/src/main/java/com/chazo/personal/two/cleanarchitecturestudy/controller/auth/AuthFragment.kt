@@ -6,18 +6,17 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.dagger.ktx.DaggerFragment
 import androidx.navigation.fragment.findNavController
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_ACCOUNT_PICKER
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RP_GET_ACCOUNTS
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 

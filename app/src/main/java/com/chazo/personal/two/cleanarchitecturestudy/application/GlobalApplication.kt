@@ -1,9 +1,9 @@
 package com.chazo.personal.two.cleanarchitecturestudy.application
 
 import android.util.Log
-import androidx.dagger.ktx.DaggerApplication
 import com.chazo.personal.two.cleanarchitecturestudy.application.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
 import java.io.IOException

@@ -1,1 +1,1 @@
-include ':app', ':androidx-dagger-ktx'
+include ':app'
