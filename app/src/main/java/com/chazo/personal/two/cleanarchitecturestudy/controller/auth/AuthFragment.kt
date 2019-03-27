@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 
 class AuthFragment : DaggerFragment() {
-
     @Inject
     lateinit var googleAccountCredential: GoogleAccountCredential
 

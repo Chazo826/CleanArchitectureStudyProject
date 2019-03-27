@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_calendar_select.*
 import javax.inject.Inject
 
 class CalendarSelectFragment : DaggerFragment() {
-
     @Inject
     lateinit var googleCalendarRepository: GoogleCalendarRepository
 
@@ -32,7 +31,6 @@ class CalendarSelectFragment : DaggerFragment() {
         compositeDisposable = CompositeDisposable()
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +38,6 @@ class CalendarSelectFragment : DaggerFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_calendar_select, container, false)
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -15,9 +15,7 @@ import kotlinx.android.synthetic.main.fragment_calendar.*
 import javax.inject.Inject
 
 class CalendarFragment : DaggerFragment() {
-
     private lateinit var compositeDisposable: CompositeDisposable
-
     @Inject
     lateinit var googleCalendarRepository: GoogleCalendarRepository
 
@@ -25,7 +23,6 @@ class CalendarFragment : DaggerFragment() {
         super.onCreate(savedInstanceState)
         compositeDisposable = CompositeDisposable()
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,7 +62,6 @@ class CalendarFragment : DaggerFragment() {
             acc + "date=${event.start.date} summary=${event.summary}" + if(index == size-1) "" else "\n"
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
