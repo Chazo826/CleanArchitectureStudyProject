@@ -1,5 +1,6 @@
 package com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.remote
 
+import android.util.Log
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarDataSource
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
 import com.google.api.client.http.HttpTransport
@@ -16,13 +17,22 @@ class GoogleCalendarRemoteDataSource @Inject constructor(
     transport: HttpTransport,
     jsonFactory: JsonFactory
 ) : GoogleCalendarDataSource {
+
     private val calendar: Calendar = Calendar.Builder(transport, jsonFactory, googleAccountCredential)
         .setApplicationName("Google Calendar Api MVC")
         .build()
 
     override fun getCalendarList(): Single<CalendarList> {
-        return Single.fromCallable { calendar.CalendarList().list().execute() }
+        return Single.fromCallable {
+            // test Schedulers.io() 인지 main thread 인지
+            Log.d("!!!!", "Thread ${Thread.currentThread()}")
+            calendar.CalendarList().list().execute()
+        }
             .subscribeOn(Schedulers.io())
+            .map {
+                Log.d("!!!!", "Thread-2 ${Thread.currentThread()}")
+                it
+            }
     }
 
     override fun getEvents(calendarId: String): Single<List<Event>> {

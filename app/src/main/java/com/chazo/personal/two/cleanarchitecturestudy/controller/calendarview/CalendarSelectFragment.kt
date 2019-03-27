@@ -3,6 +3,7 @@ package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ class CalendarSelectFragment : DaggerFragment() {
 
     private fun showCalendarButtons() {
         getCalendars().subscribe({
+            Log.d("!!!!", "Thread-3 ${Thread.currentThread()}")
             layout_calendars.removeAllViews()
             addCalendarButtons(it)
         }, {

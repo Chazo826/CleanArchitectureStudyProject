@@ -6,10 +6,11 @@ import com.google.api.services.calendar.model.Event
 import io.reactivex.Single
 import javax.inject.Inject
 
-class GoogleCalendarRepository @Inject constructor(private val remote: GoogleCalendarRemoteDataSource): GoogleCalendarDataSource {
-    override fun getCalendarList(): Single<CalendarList> {
-        return remote.getCalendarList()
-    }
+class GoogleCalendarRepository @Inject constructor(
+    private val remote: GoogleCalendarRemoteDataSource
+) : GoogleCalendarDataSource {
+
+    override fun getCalendarList(): Single<CalendarList> = remote.getCalendarList()
 
     override fun getEvents(calendarId: String): Single<List<Event>> {
         return remote.getEvents(calendarId)
