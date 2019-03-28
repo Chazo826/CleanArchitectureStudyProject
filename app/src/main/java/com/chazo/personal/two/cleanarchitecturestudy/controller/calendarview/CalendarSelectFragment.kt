@@ -93,9 +93,9 @@ class CalendarSelectFragment : DaggerFragment() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
+        super.onDestroy()
     }
 }

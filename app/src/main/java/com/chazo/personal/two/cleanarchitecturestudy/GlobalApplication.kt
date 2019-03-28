@@ -26,14 +26,14 @@ class GlobalApplication: DaggerApplication() {
             if (error is UndeliverableException) {
                 error = e.cause
             }
-            if (error is IOException || error is SocketException) {
-                // fine, irrelevant network problem or API that throws on cancellation
-                return@setErrorHandler
-            }
-            if (error is InterruptedException) {
-                // fine, some blocking code was interrupted by a dispose call
-                return@setErrorHandler
-            }
+//            if (error is IOException || error is SocketException) {
+//                // fine, irrelevant network problem or API that throws on cancellation
+//                return@setErrorHandler
+//            }
+//            if (error is InterruptedException) {
+//                // fine, some blocking code was interrupted by a dispose call
+//                return@setErrorHandler
+//            }
             if (error is NullPointerException || error is IllegalArgumentException) {
                 // that's likely a bug in the application
                 Thread.currentThread().uncaughtExceptionHandler
