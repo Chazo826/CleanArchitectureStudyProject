@@ -35,36 +35,37 @@ class CalendarSelectFragment : DaggerFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendar_select, container, false)
-    }
+    ): View? =
+        super.onCreateView(inflater, container, savedInstanceState)
+            ?: inflater.inflate(R.layout.fragment_calendar_select, container, false)
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        showCalendarButtons()
+        getCalendars()
     }
 
-    private fun showCalendarButtons() {
-        getCalendars().subscribe({
-            Log.d("!!!!", "Thread-3 ${Thread.currentThread()}")
-            layout_calendars.removeAllViews()
-            addCalendarButtons(it)
-        }, {
-            when (it) {
-                is UserRecoverableAuthIOException -> startActivityForResult(it.intent, RC_AUTH_PERMISSION)
-                else -> it.printStackTrace()
-            }
-        }).apply { compositeDisposable.add(this) }
-    }
-
-    private fun getCalendars(): Single<List<CalendarListEntry>> =
+    // todo: movew method in presenter
+    private fun getCalendars() {
         googleCalendarRepository.getCalendarList()
             .observeOn(AndroidSchedulers.mainThread())
             .map { it.items }
             .doFinally { progress_loading?.visibility = View.GONE }
+            .subscribe({
+                it?.let { list ->
+                    setCalendars(list)
+                }
+            }, {
+                when (it) {
+                    is UserRecoverableAuthIOException -> startActivityForResult(it.intent, RC_AUTH_PERMISSION)
+                    else -> it.printStackTrace()
+                }
+            }).apply { compositeDisposable.add(this) }
+    }
 
-    private fun addCalendarButtons(calendars: List<CalendarListEntry>) {
+    // todo: move method in view
+    private fun setCalendars(calendars: List<CalendarListEntry>) {
+        layout_calendars.removeAllViews()
         calendars.forEach {
             layout_calendars.addView(createCalendarButton(it))
         }
@@ -84,7 +85,6 @@ class CalendarSelectFragment : DaggerFragment() {
         findNavController().navigate(action)
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_AUTH_PERMISSION && resultCode == Activity.RESULT_OK) {
@@ -94,7 +94,7 @@ class CalendarSelectFragment : DaggerFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if(!compositeDisposable.isDisposed) {
+        if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
     }

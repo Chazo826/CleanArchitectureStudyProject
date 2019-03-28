@@ -73,9 +73,9 @@ class CalendarFragment : DaggerFragment() {
             }).apply { compositeDisposable.add(this) }
     }
 
-    private fun createEventsText(events: List<Event>): String {
-        val size = events.size
-        return events.foldIndexed("") { index, acc, event ->
+    private fun createEventsText(events: List<Event>): String = events.run {
+        val size = size
+        foldIndexed("") { index, acc, event ->
             acc + "date=${event.start.date} summary=${event.summary}" + if (index == size - 1) "" else "\n"
         }
     }

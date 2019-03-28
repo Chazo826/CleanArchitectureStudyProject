@@ -11,9 +11,9 @@ class GoogleCalendarRepository @Inject constructor(
 ) : GoogleCalendarDataSource {
 
     //코틀린 답게 축약
-    override fun getCalendarList(): Single<CalendarList> = remote.getCalendarList()
+    override fun getCalendarList(): Single<CalendarList> =
+        remote.getCalendarList()
 
-    override fun getEvents(calendarId: String): Single<List<Event>> {
-        return remote.getEvents(calendarId)
-    }
+    override fun getEvents(calendarId: String): Single<List<Event>> =
+        remote.getEvents(calendarId)
 }

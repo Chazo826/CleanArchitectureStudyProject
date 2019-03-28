@@ -22,8 +22,8 @@ class GoogleCalendarRemoteDataSource @Inject constructor(
         .setApplicationName("Google Calendar Api MVC")
         .build()
 
-    override fun getCalendarList(): Single<CalendarList> {
-        return Single.fromCallable {
+    override fun getCalendarList(): Single<CalendarList> =
+        Single.fromCallable {
             // test Schedulers.io() 인지 main thread 인지
             Log.d("!!!!", "Thread ${Thread.currentThread()}")
             calendar.CalendarList().list().execute()
@@ -33,16 +33,16 @@ class GoogleCalendarRemoteDataSource @Inject constructor(
                 Log.d("!!!!", "Thread-2 ${Thread.currentThread()}")
                 it
             }
-    }
 
-    override fun getEvents(calendarId: String): Single<List<Event>> {
-        return Single.fromCallable {
+
+    override fun getEvents(calendarId: String): Single<List<Event>> =
+        Single.fromCallable {
             calendar.events()
                 .list(calendarId)
                 .setOrderBy("startTime")
                 .setSingleEvents(true)
-                .execute() }
+                .execute()
+        }
             .subscribeOn(Schedulers.io())
             .map { it.items }
-    }
 }

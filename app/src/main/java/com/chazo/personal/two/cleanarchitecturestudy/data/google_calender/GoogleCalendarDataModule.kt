@@ -18,27 +18,25 @@ import javax.inject.Singleton
 abstract class GoogleCalendarDataModule {
     @Module
     companion object {
+
         @JvmStatic
         @Singleton
         @Provides
-        fun provideGoogleAccountCredential(context: Context): GoogleAccountCredential {
-            return GoogleAccountCredential
+        fun provideGoogleAccountCredential(context: Context): GoogleAccountCredential =
+            GoogleAccountCredential
                 .usingOAuth2(context, Arrays.asList(CalendarScopes.CALENDAR))
                 .setBackOff(ExponentialBackOff())
-        }
 
         @JvmStatic
         @Provides
-        fun provideHttpTransport(): HttpTransport {
-            return AndroidHttp.newCompatibleTransport()
-        }
+        fun provideHttpTransport(): HttpTransport =
+            AndroidHttp.newCompatibleTransport()
 
         @JvmStatic
         @Singleton
         @Provides
-        fun provideJacksonFactory(): JacksonFactory {
-            return JacksonFactory.getDefaultInstance()
-        }
+        fun provideJacksonFactory(): JacksonFactory =
+            JacksonFactory.getDefaultInstance()
 
         @JvmStatic
         @Singleton
@@ -47,9 +45,9 @@ abstract class GoogleCalendarDataModule {
             googleAccountCredential: GoogleAccountCredential,
             transport: HttpTransport,
             jacksonFactory: JacksonFactory
-        ): GoogleCalendarRemoteDataSource {
-            return GoogleCalendarRemoteDataSource(googleAccountCredential, transport, jacksonFactory)
-        }
+        ): GoogleCalendarRemoteDataSource =
+            GoogleCalendarRemoteDataSource(googleAccountCredential, transport, jacksonFactory)
+
     }
 
     @Singleton
