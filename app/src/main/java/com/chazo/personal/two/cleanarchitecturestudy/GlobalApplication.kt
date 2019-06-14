@@ -6,6 +6,7 @@ import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
+import timber.log.Timber
 import java.io.IOException
 import java.net.SocketException
 
@@ -18,6 +19,7 @@ class GlobalApplication: DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
         setupRxJavaErrorHandler()
+        setupTimber()
     }
 
     private fun setupRxJavaErrorHandler() {
@@ -48,5 +50,9 @@ class GlobalApplication: DaggerApplication() {
             }
             Log.w("Undeliverable exception received, not sure what to do", error)
         }
+    }
+
+    private fun setupTimber() {
+        Timber.plant(Timber.DebugTree())
     }
 }
