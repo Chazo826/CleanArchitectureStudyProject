@@ -39,6 +39,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
+    implementation "androidx.viewpager2:viewpager2:$versions.viewPager2"
+
     implementation "com.google.android.gms:play-services-auth:$versions.playServicesAuth"
     implementation("com.google.api-client:google-api-client-android:$versions.googleApiClientAndroid") {
         exclude group: 'org.apache.httpcomponents'
