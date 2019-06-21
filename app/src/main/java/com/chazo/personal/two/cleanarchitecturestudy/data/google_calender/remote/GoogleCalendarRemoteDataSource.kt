@@ -10,6 +10,7 @@ import com.google.api.services.calendar.model.CalendarList
 import com.google.api.services.calendar.model.Event
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 import javax.inject.Inject
 
 class GoogleCalendarRemoteDataSource @Inject constructor(
@@ -25,12 +26,12 @@ class GoogleCalendarRemoteDataSource @Inject constructor(
     override fun getCalendarList(): Single<CalendarList> =
         Single.fromCallable {
             // test Schedulers.io() 인지 main thread 인지
-            Log.d("!!!!", "Thread ${Thread.currentThread()}")
+            Timber.d( "Thread ${Thread.currentThread()}")
             calendar.CalendarList().list().execute()
         }
             .subscribeOn(Schedulers.io())
             .map {
-                Log.d("!!!!", "Thread-2 ${Thread.currentThread()}")
+                Timber.d( "Thread-2 ${Thread.currentThread()}")
                 it
             }
 

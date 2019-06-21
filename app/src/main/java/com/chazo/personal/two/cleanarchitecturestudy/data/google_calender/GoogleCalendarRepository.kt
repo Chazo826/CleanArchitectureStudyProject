@@ -10,7 +10,6 @@ class GoogleCalendarRepository @Inject constructor(
     private val remote: GoogleCalendarRemoteDataSource
 ) : GoogleCalendarDataSource {
 
-    //코틀린 답게 축약
     override fun getCalendarList(): Single<CalendarList> =
         remote.getCalendarList()
 

@@ -1,9 +1,8 @@
-package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
+package com.chazo.personal.two.cleanarchitecturestudy.controller.calendar.select
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +10,11 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_AUTH_PERMISSION
+import com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview.CalendarSelectFragmentDirections
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException
 import com.google.api.services.calendar.model.CalendarListEntry
 import dagger.android.support.DaggerFragment
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_calendar_select.*
@@ -81,7 +80,10 @@ class CalendarSelectFragment : DaggerFragment() {
     }
 
     private fun moveToCalendarFragment(calendarId: String) {
-        val action = CalendarSelectFragmentDirections.actionDestCalendarSelectToDestCalendar(calendarId)
+        val action =
+            CalendarSelectFragmentDirections.actionDestCalendarSelectToDestCalendar(
+                calendarId
+            )
         findNavController().navigate(action)
     }
 

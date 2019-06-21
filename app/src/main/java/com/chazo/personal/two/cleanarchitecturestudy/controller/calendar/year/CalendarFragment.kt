@@ -1,14 +1,14 @@
-package com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview
+package com.chazo.personal.two.cleanarchitecturestudy.controller.calendar.year
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.chazo.personal.two.cleanarchitecturestudy.R
+import com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview.CalendarFragmentArgs
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.services.calendar.model.Event
 import dagger.android.support.DaggerFragment
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -38,7 +38,9 @@ class CalendarFragment : DaggerFragment() {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
         arguments?.let {
-            CalendarFragmentArgs.fromBundle(it).let { args ->
+            CalendarFragmentArgs.fromBundle(
+                it
+            ).let { args ->
                 if(args.calendarId != getString(R.string.calendarId_default)) {
                     // 3. presenter 인터페이스 함수를 호출한다.
                     getEvents(args.calendarId)
