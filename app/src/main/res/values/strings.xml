@@ -7,4 +7,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="button_sign_in">계정 선택하기</string>
+
+    <string name="year">%d년</string>
+    <string name="month">%d월</string>
+    <string name="sunday">일</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
 </resources>

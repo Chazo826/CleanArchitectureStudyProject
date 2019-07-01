@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.chazo.personal.two.cleanarchitecturestudy.R
-import com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview.CalendarFragmentArgs
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.services.calendar.model.Event
 import dagger.android.support.DaggerFragment

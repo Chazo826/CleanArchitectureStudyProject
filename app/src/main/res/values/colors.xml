@@ -7,4 +7,6 @@
     <color name="calendar_day">#000000</color>
     <color name="calendar_day_not_enabled">#30000000</color>
 
+    <color name="text_sunday">#f54242</color>
+    <color name="text_saturday">#4260f5</color>
 </resources>

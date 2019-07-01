@@ -10,7 +10,6 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.chazo.personal.two.cleanarchitecturestudy.R
 import com.chazo.personal.two.cleanarchitecturestudy.constant.RC_AUTH_PERMISSION
-import com.chazo.personal.two.cleanarchitecturestudy.controller.calendarview.CalendarSelectFragmentDirections
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException
 import com.google.api.services.calendar.model.CalendarListEntry
@@ -81,9 +80,7 @@ class CalendarSelectFragment : DaggerFragment() {
 
     private fun moveToCalendarFragment(calendarId: String) {
         val action =
-            CalendarSelectFragmentDirections.actionDestCalendarSelectToDestCalendar(
-                calendarId
-            )
+            CalendarSelectFragmentDirections.actionDestAuthToDestMonths()
         findNavController().navigate(action)
     }
 
