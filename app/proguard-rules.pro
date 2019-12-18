@@ -20,4 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class com.google.api.** {*; }
+-keepclassmembers class * {
+  @com.google.api.client.util.Key <fields>;
+}
