@@ -31,16 +31,10 @@ class MonthsFragment : Fragment() {
         viewpager2_months.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if(position == CalendarMonthAdapter.FLAG_PREVIOUS || position == CalendarMonthAdapter.FLAG_NEXT) {
+//                if(position == CalendarMonthAdapter.FLAG_PREVIOUS || position == CalendarMonthAdapter.FLAG_NEXT) {
                     updateMonths(position)
-                }
-                text_month.text = getString(R.string.month,
-                    when (position) {
-                        0 -> 12
-                        13 -> 1
-                        else -> position
-                    }
-                )
+//                }
+
 
             }
         })
@@ -54,16 +48,35 @@ class MonthsFragment : Fragment() {
         }
     }
 
-    private fun updateMonths(flag: Int) {
+    private fun updateMonths(position: Int) {
         val adapter = viewpager2_months.adapter as CalendarMonthAdapter
         val year = adapter.year
-        if(flag == CalendarMonthAdapter.FLAG_PREVIOUS) {
-            adapter.year = year - 1
-            viewpager2_months.setCurrentItem(12, false)
-        } else {
-            adapter.year = year + 1
-            viewpager2_months.setCurrentItem(1, false)
+
+        when(position) {
+            CalendarMonthAdapter.FLAG_PREVIOUS -> {
+                adapter.year = year - 1
+                viewpager2_months.setCurrentItem(12, false)
+                adapter.notifyDataSetChanged()
+            }
+            CalendarMonthAdapter.FLAG_NEXT -> {
+                adapter.year = year + 1
+                viewpager2_months.setCurrentItem(1, false)
+                adapter.notifyDataSetChanged()
+            }
         }
-        adapter.notifyDataSetChanged()
+
+        text_month.text = getString(R.string.month,
+            when (position) {
+                0 -> 12
+                13 -> 1
+                else -> position
+            }
+        )
+
+        updateYear(adapter.year)
+    }
+
+    private fun updateYear(year: Int) {
+        text_year.text = getString(R.string.year, year)
     }
 }

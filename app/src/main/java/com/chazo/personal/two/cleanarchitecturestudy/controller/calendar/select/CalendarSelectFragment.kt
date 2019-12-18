@@ -43,6 +43,8 @@ class CalendarSelectFragment : DaggerFragment() {
         getCalendars()
     }
 
+
+
     // todo: movew method in presenter
     private fun getCalendars() {
         googleCalendarRepository.getCalendarList()
