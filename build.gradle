@@ -28,7 +28,9 @@ buildscript {
                 //arch
                 navigation              : "2.1.0",
 
-                timber                  : "4.7.1"
+                timber                  : "4.7.1",
+
+                firebaseUi              : "6.2.0"
         ]
     }
 
@@ -36,10 +38,12 @@ buildscript {
         google()
         jcenter()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+        classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 

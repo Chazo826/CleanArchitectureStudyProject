@@ -1,6 +1,8 @@
-package com.chazo.personal.two.cleanarchitecturestudy.data.google_calender
+package com.chazo.personal.two.cleanarchitecturestudy.di.data
 
 import android.content.Context
+import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarDataSource
+import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.GoogleCalendarRepository
 import com.chazo.personal.two.cleanarchitecturestudy.data.google_calender.remote.GoogleCalendarRemoteDataSource
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
@@ -18,15 +20,6 @@ import javax.inject.Singleton
 abstract class GoogleCalendarDataModule {
     @Module
     companion object {
-
-        @JvmStatic
-        @Singleton
-        @Provides
-        fun provideGoogleAccountCredential(context: Context): GoogleAccountCredential =
-            GoogleAccountCredential
-                .usingOAuth2(context, Arrays.asList(CalendarScopes.CALENDAR))
-                .setBackOff(ExponentialBackOff())
-
         @JvmStatic
         @Provides
         fun provideHttpTransport(): HttpTransport =

@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.application.scopes
+package com.chazo.personal.two.cleanarchitecturestudy.di.scopes
 
 import javax.inject.Scope
 

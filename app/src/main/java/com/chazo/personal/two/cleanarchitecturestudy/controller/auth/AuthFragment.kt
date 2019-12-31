@@ -18,6 +18,7 @@ import com.chazo.personal.two.cleanarchitecturestudy.constant.RP_GET_ACCOUNTS
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_auth.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class AuthFragment : DaggerFragment() {
@@ -61,6 +62,7 @@ class AuthFragment : DaggerFragment() {
                 val accountName = it.getStringExtra(AccountManager.KEY_ACCOUNT_NAME)
                 accountName?.let {
                     googleAccountCredential.selectedAccountName = it
+                    Timber.d("selected name: $it")
                     moveToCalendarSelectFragment()
                 } ?: run {
                     Toast.makeText(requireContext(), "선택된 계정이 없습니다.", Toast.LENGTH_SHORT).show()

@@ -1,4 +1,4 @@
-package com.chazo.personal.two.cleanarchitecturestudy.application.di
+package com.chazo.personal.two.cleanarchitecturestudy.di.application
 
 import android.app.Application
 import android.content.Context

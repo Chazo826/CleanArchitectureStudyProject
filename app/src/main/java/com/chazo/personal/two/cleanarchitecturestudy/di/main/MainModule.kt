@@ -1,8 +1,7 @@
-package com.chazo.personal.two.cleanarchitecturestudy.controller.main
+package com.chazo.personal.two.cleanarchitecturestudy.di.main
 
-import com.chazo.personal.two.cleanarchitecturestudy.application.scopes.FragmentScoped
+import com.chazo.personal.two.cleanarchitecturestudy.di.scopes.FragmentScoped
 import com.chazo.personal.two.cleanarchitecturestudy.controller.auth.AuthFragment
-import com.chazo.personal.two.cleanarchitecturestudy.controller.calendar.months.MonthsFragment
 import com.chazo.personal.two.cleanarchitecturestudy.controller.calendar.year.CalendarFragment
 import com.chazo.personal.two.cleanarchitecturestudy.controller.calendar.select.CalendarSelectFragment
 import dagger.Module
